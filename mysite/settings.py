@@ -134,5 +134,5 @@ STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 PROJECT_ROOT = os.path.dirname(os.path.abspath(file))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
-ALLOWED_HOSTS = ['https://web-miet.herokuapp.com/']
+ALLOWED_HOSTS = ['*']
 X_FRAME_OPTIONS = '*'
