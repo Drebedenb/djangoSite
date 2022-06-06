@@ -1,4 +1,5 @@
 Django==4.0.4
+requests
 python-telegram-bot == 13.11
 djangorestframework == 3.13.1
 gunicorn
