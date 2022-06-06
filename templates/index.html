@@ -1,0 +1,217 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>BLOG DAN KUZMA</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        
+    
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    
+  </head>
+  <body>
+    
+    <div class="container">
+      <div class="info">
+        <img src="static/image/avatar.jpg" alt="тут моя фотка" class="avatar" />
+
+        <div class="info-text">
+          <h1>Данила Кузнецов</h1>
+          <p>Это блог<strong> Данилы Кузнецова</strong></p>
+          <p>Я люблю путешестовать, заниматься спортом и программировать</p>
+
+          <h4>Мои социальные сети</h4>
+          
+          <a href="https://www.instagram.com/danila_kuzya/feed/" target="_blank">Instagram</a>
+          |
+          <a target="_blank" href="">Telegram</a>
+        </div>
+      </div>
+
+      <div class="card bg-yellow">
+        <h2>Мои хобби</h2>
+        <ol class="list">
+          <li>Спорт</li>
+          <li>Чтение умных (и не очень) книг</li>
+          <li>Решать матанализ</li>
+          <li>Путешествия</li>
+        </ol>
+      </div>
+
+
+      
+      
+      <div class="card bg-green">
+        <h2>Мои посты</h2>
+        <table class="table">
+          <tr>
+            <td>Болгария</td>
+            <td>Туда-и-обратно</td>
+            <td>30.02.2022</td>
+          </tr>
+          <tr>
+            <td>Турция</td>
+            <td>Туда-и-обратно</td>
+            <td>30.01.2022</td>
+          </tr>
+          <tr>
+            <td>Как я стал писать блог?</td>
+            <td>Карьера</td>
+            <td>17.01.2022</td>
+          </tr>
+          <tr>
+            <td>Борьба с шумом</td>
+            <td>Повседневная жизнь</td>
+            <td>01.01.2022</td>
+          </tr>
+        </table>
+      </div>
+
+    
+      <div class="card bg-red">
+        <h2>Будет интересно</h2>
+        <ul class="link-list">
+          <li>
+            <a href="album.html">Галерея</a>
+          </li>
+          <li>
+            <a href="meets.html">Мероприятия и даты</a>
+          </li>
+          <li>
+            <a href="form.html">Форма для заполнения</a>
+          </li>
+          <li>
+            <a href="create.html">Запись в БД</a>
+          </li>
+        </ul>
+      </div>
+
+
+      <form class="imagesArea horizontal wide" id="feedbackForm">
+                <div class="imagesArea vertical">
+                    <div align="center">
+                        <label for="userName"><h2>Your name</h2></label><input type="text" class="inputFields" id="userName" name="name" maxlength="20" required>
+                        <h2>Your email</h2><label for="userEmail"></label><input type="email" class="inputFields" id="userEmail" required>
+                        <h2 >Your message</h2><textarea rows="12" class="inputFields" id="userMessage" minlength="20" required></textarea>
+                        <button id="submitButton"><h2>Submit</h2></button>
+                        </div>
+                </div>
+            </form>
+
+
+<script>
+      var form = document.getElementById("feedbackForm")
+    form.addEventListener("submit",  e => {
+      e.preventDefault();
+     
+      const token = "5161980504:AAGdy6Q59if3Nb0XtUK8AmlZt3RG1x0TYjs";
+      const chatId = "-614399438";
+     
+      var email = document.getElementById("userEmail").value;
+      var name = document.getElementById("userName").value;
+      var message = document.getElementById("userMessage").value;
+      var msg = "New feedback \n Name:" + name+ " " + " Email: " + email + "\nMessage: " + message;
+      var z=$.ajax({
+        type: "POST",
+        url: "https://api.telegram.org/bot"+token+"/sendMessage?chat_id="+chatId,
+        data: "parse_mode=html&text="+msg,
+      });
+    console.log("Message succesfully sended!")
+
+    });
+</script>
+      
+
+      <form action="">
+        <h1 title="Форма регистрации на сайте">Регистрация</h1>
+        <div class="group">
+          <label for="username">Имя пользователя:</label>
+          <input type="text" id="name" name="name" maxlength="8" required>
+        </div>
+        <div class="group">
+          <label for="username">Возраст:</label>
+          <input type="number" id="age" name="age" max = "100" min = "10" required>
+        </div>
+        <div class="group">
+          <label for="mail">Адрес электронной почты:</label>
+          <input type="email" id="mail" name="mail" required>
+        </div>
+        <div class="group">
+          <label for="">Пароль:</label>
+          <input type="password" id="pass" name="pass" pattern="^[a-zA-Z0-9]+$" minlength="5" maxlength="20" required>
+        </div>
+        <div class="group">
+          <center><button>Регистрация</button></center>
+        </div>
+      </form>
+      <script>
+
+        const name = document.getElementById("name");
+        name.addEventListener("input", function (event) {
+          if (name.validity.typeMismatch) {
+            name.setCustomValidity("Введите правильное имя!");
+          }
+          else if (name.validity.tooLong){
+            name.setCustomValidity("Достигнут лимит!");
+          }
+          else {
+            name.setCustomValidity("");
+          }
+        });
+
+        const age = document.getElementById("age");
+        age.addEventListener("input", function (event) {
+          if (age.validity.typeMismatch) {
+            age.setCustomValidity("Введите правильно имя!");
+          }
+          else if(age.validity.rangeOverflow){
+            age.setCustomValidity("Введите правильное число!");
+          }
+          else if(age.validity.rangeUnderflow){
+            age.setCustomValidity("Введите правильное число!");
+          }
+          else {
+            age.setCustomValidity("");
+          }
+        });
+
+        const email = document.getElementById("mail");
+        email.addEventListener("input", function (event) {
+          if (email.validity.typeMismatch) {
+            email.setCustomValidity("Введите правильно (@)!");
+          } else {
+            email.setCustomValidity("");
+          }
+        });
+
+
+        const pass = document.getElementById("pass");
+        pass.addEventListener("input", function (event) {
+          if (pass.validity.patternMismatch) {
+            pass.setCustomValidity("Введите правильный пароль[a-z,A-Z,0-9]!");
+          }
+          else if (pass.validity.tooLong){
+            pass.setCustomValidity("Достигнут лимит!");
+          }
+          else {
+            pass.setCustomValidity("");
+          }
+        });
+      </script>
+
+      <div class="position">
+        <div class="box"></div>
+      </div>
+    </div>
+
+    
+
+    <div style="margin-bottom: 500px;;"></div>
+  </body>
+</html>

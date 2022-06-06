@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>BLOG DAN KUZMA</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        
+    
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    
+  </head>
+  <body>
+    
+    <div class="container">
+      <div class="info">
+        <img src="static/image/avatar.jpg" alt="тут моя фотка" class="avatar" />
+
+        <div class="info-text">
+          <h1>Данила Кузнецов</h1>
+          <p>Это блог<strong> Данилы Кузнецова</strong></p>
+          <p>Я люблю путешестовать, заниматься спортом и программировать</p>
+
+          <h4>Мои социальные сети</h4>
+          
+          <a href="https://www.instagram.com/danila_kuzya/feed/" target="_blank">Instagram</a>
+          |
+          <a target="_blank" href="">Telegram</a>
+        </div>
+      </div>
+
+      <form method="post">
+        {% csrf_token %}
+        {{ form.title }}
+        {{ form.anons }}
+        {{ form.full_text }}
+        <span>{{ error }}</span>
+
+        <button type="submit">Submit</button>
+      </form>
+
+
+    
+      <div class="card bg-red">
+        <h2>Будет интересно</h2>
+        <ul class="link-list">
+          <li>
+            <a href="album.html">Галерея</a>
+          </li>
+          <li>
+            <a href="meets.html">Мероприятия и даты</a>
+          </li>
+          <li>
+            <a href="form.html">Форма для заполнения</a>
+          </li>
+        </ul>
+      </div>
+
+
+    <div style="margin-bottom: 500px;;"></div>
+  </body>
+</html>
