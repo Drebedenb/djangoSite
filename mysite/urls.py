@@ -6,6 +6,7 @@ from django.conf.urls import  include
 urlpatterns = [
     path('', views.index),
     path('admin/', admin.site.urls),
+    path('/', views.index),
     path('index.html', views.index),
     path('album.html', views.album),
     path('form.html', views.form),
