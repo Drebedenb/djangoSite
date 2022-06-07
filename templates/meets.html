@@ -3,114 +3,95 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8" />
-  <title>Мероприятия</title>
- <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <meta charset="UTF-8"/>
+    <title>Мероприятия</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
 <div class="container">
-  <div class="info">
-    <img src="static/image/avatar.jpg" alt="тут моя фотка" class="avatar" />
+    <div class="info">
+        <img src="static/image/avatar.jpg" alt="тут моя фотка" class="avatar"/>
 
-    <div class="info-text">
-      <h1>Данила Кузнецов</h1>
-      <p>Это блог<strong> Данилы Кузнецова</strong></p>
-      <p>Я люблю путешестовать, заниматься спортом и программировать</p>
+        <div class="info-text">
+            <h1>Данила Кузнецов</h1>
+            <p>Это блог<strong> Данилы Кузнецова</strong></p>
+            <p>Я люблю путешестовать, заниматься спортом и программировать</p>
 
-      <h4>Мои социальные сети</h4>
+            <h4>Мои социальные сети</h4>
 
-      <a href="" target="_blank">Instagram</a>
-      |
-      <a target="_blank" href="">Telegram</a>
+            <a href="https://github.com/Drebedenb" target="_blank">GitHub</a>
+            |
+            <a target="_blank" href="https://vk.com/danila_kuzya">Вконтакте</a>
+        </div>
     </div>
 
-  </div>
+    <div class="card bg-green">
+        <h2>Мои встречи из БД</h2>
+        <table class="table">
+            {% for el in news %}
+            <tr>
+                <td>{{ el.title }}</td>
+                <td>{{ el.anons }}</td>
+                <td>{{ el.full_text }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td>Казань</td>
+                <td>фан встреча</td>
+                <td>01.01.2022</td>
+            </tr>
+        </table>
+    </div>
 
 
-
-  <h1>Встречи из БД</h1>
-
-  {% for el in news %}
-  <div class="alert alertWarning">
-    <h3>{{ el.title }}</h3>
-    <p>{{ el.anons }}</p>
-  </div>
-  {% endfor %}
-
-
-  <div class="card bg-green">
-    <h2>Мои встречи</h2>
-    <table class="table">
-      <tr>
-        <td>Москва</td>
-        <td>Тур ЯЖИВ</td>
-        <td>30.02.2022</td>
-      </tr>
-      <tr>
-        <td>Петербург</td>
-        <td>Тур ЯЖИВ</td>
-        <td>30.01.2022</td>
-      </tr>
-      <tr>
-        <td>Казань</td>
-        <td>Тур ЯЖИВ</td>
-        <td>17.01.2022</td>
-      </tr>
-      <tr>
-        <td>Казань</td>
-        <td>фан встреча</td>
-        <td>01.01.2022</td>
-      </tr>
-    </table>
-  </div>
+    <div class="card bg-green">
+        <h2>Мои встречи</h2>
+        <table class="table">
+            <tr>
+                <td>Москва</td>
+                <td>Тур ЯЖИВ</td>
+                <td>30.02.2022</td>
+            </tr>
+            <tr>
+                <td>Петербург</td>
+                <td>Тур ЯЖИВ</td>
+                <td>30.01.2022</td>
+            </tr>
+            <tr>
+                <td>Казань</td>
+                <td>Тур ЯЖИВ</td>
+                <td>17.01.2022</td>
+            </tr>
+            <tr>
+                <td>Казань</td>
+                <td>фан встреча</td>
+                <td>01.01.2022</td>
+            </tr>
+        </table>
+    </div>
 
 
-  <div class="card bg-red">
-    <h2>Будет интересно</h2>
-    <ul class="link-list">
-      <li>
-        <a href="album.html">Галерея</a>
-      </li>
-      <li>
-        <a href="index.html">Главная</a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="contact">
-    <h2>Связаться со мной</h2>
-
-    <form action="/">
-      <div class="row">
-        <div class="form-group">
-          <label for="name">Ваше имя:</label>
-          <input type="text" id="name" placeholder="Введите ваше имя...">
-        </div>
-
-        <div class="form-group">
-          <label for="email">Ваш email:</label>
-          <input type="email" id="email" placeholder="Введите email...">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="text">Вашe сообщение:</label>
-
-        <textarea id="text" rows="2" cols="15"></textarea>
-      </div>
-
-      <input class="btn" type="submit" value="Связаться!">
-    </form>
-  </div>
+    <div class="card bg-red">
+        <h2>Будет интересно</h2>
+        <ul class="link-list">
+            <li>
+                <a href="index.html">Главная</a>
+            </li>
+            <li>
+                <a href="album.html">Галерея</a>
+            </li>
+            <li>
+                <a href="create.html">Записать мероприятие в БД</a>
+            </li>
+        </ul>
+    </div>
 
 
-  <div class="position">
-    <div class="box"></div>
-  </div>
+    <div class="position">
+        <div class="box"></div>
+    </div>
 </div>
 
 
-
-<div style="margin-bottom: 500px;;"></div>
 </body>
 </html>

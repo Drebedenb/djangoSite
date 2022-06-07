@@ -11,9 +11,6 @@ def login(request):
 def album(request):
   return render(request, "album.html")
 
-def form(request):
-  return render(request, "form.html")
-
 def meets(request):
   news = Articles.objects.all()
   return render(request, "meets.html", {'news': news})
@@ -37,6 +34,3 @@ def create(request):
   }
   
   return render(request,"create.html",data)
-
-def thank(request):
-  return render(request, "thank-you.html")
