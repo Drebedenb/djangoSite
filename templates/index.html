@@ -17,7 +17,7 @@
 
 <div class="container">
     <div class="info">
-        <img src="image/avatar.jpg" alt="тут моя фотка" class="avatar"/>
+        <img src="{% static 'image/avatar.jpg' %}" alt="Данила Кузнецов фото" class="avatar"/>
 
         <div class="info-text">
             <h1>Данила Кузнецов</h1>
@@ -87,17 +87,22 @@
 
 
     <div class="card bg-yellow">
+        <h2>
+            Связаться через Telegram
+        </h2>
         <form class="imagesArea horizontal wide" id="feedbackForm">
             <div class="imagesArea vertical">
                 <div align="center">
-                    <label for="userName"><h2>Your name</h2></label><input type="text" class="inputFields" id="userName"
+                    <label for="userName"><h2>Ваше имя</h2></label><input type="text" class="inputFields" id="userName"
                                                                            name="name" maxlength="20" required>
-                    <h2>Your email</h2><label for="userEmail"></label><input type="email" class="inputFields"
+                    <h2>Ваш email</h2><label for="userEmail"></label><input type="email" class="inputFields"
                                                                              id="userEmail"
                                                                              required>
-                    <h2>Your message</h2><textarea rows="12" class="inputFields" id="userMessage" minlength="20"
+                    <h2>Ваше сообщение</h2><textarea rows="2" class="inputFields" id="userMessage" minlength="10"
                                                    required></textarea>
-                    <button id="submitButton"><h2>Submit</h2></button>
+                    <div>
+                        <button id="submitButton"><h2>Submit</h2></button>
+                    </div>
                 </div>
             </div>
         </form>

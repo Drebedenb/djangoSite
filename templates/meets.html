@@ -10,7 +10,7 @@
 <body>
 <div class="container">
     <div class="info">
-        <img src="image/avatar.jpg" alt="тут моя фотка" class="avatar"/>
+        <img src="{% static 'image/avatar.jpg' %}" alt="Данила Кузнецов фото" class="avatar"/>
 
         <div class="info-text">
             <h1>Данила Кузнецов</h1>
@@ -25,6 +25,12 @@
         </div>
     </div>
 
+    <div class="card bg-yellow">
+        Здесь вы можете увидеть записи, которые добавляются через БД. Добавить их можно с мощоью формы
+        <a href="create.html">здесь</a>
+        или в навигации внизу
+    </div>
+
     <div class="card bg-green">
         <h2>Мои встречи из БД</h2>
         <table class="table">
@@ -35,41 +41,8 @@
                 <td>{{ el.full_text }}</td>
             </tr>
             {% endfor %}
-            <tr>
-                <td>Казань</td>
-                <td>фан встреча</td>
-                <td>01.01.2022</td>
-            </tr>
         </table>
     </div>
-
-
-    <div class="card bg-green">
-        <h2>Мои встречи</h2>
-        <table class="table">
-            <tr>
-                <td>Москва</td>
-                <td>Тур ЯЖИВ</td>
-                <td>30.02.2022</td>
-            </tr>
-            <tr>
-                <td>Петербург</td>
-                <td>Тур ЯЖИВ</td>
-                <td>30.01.2022</td>
-            </tr>
-            <tr>
-                <td>Казань</td>
-                <td>Тур ЯЖИВ</td>
-                <td>17.01.2022</td>
-            </tr>
-            <tr>
-                <td>Казань</td>
-                <td>фан встреча</td>
-                <td>01.01.2022</td>
-            </tr>
-        </table>
-    </div>
-
 
     <div class="card bg-red">
         <h2>Будет интересно</h2>
