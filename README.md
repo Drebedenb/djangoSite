@@ -4,3 +4,5 @@ You can see actual version of site here:
 
 ## Stack
 Django + HTMLL/CSS + TelegramAPI + PHP
+
+##
